@@ -1,0 +1,277 @@
+@mixin ellipse($size, $left, $right, $top, $bottom, $radius: 50px) {
+    position: absolute;
+    @if($left) {
+        left: $left;
+    }
+    @if($right) {
+        right: $right;
+    }
+    top: $top;
+    bottom: $bottom;
+    width: $size;
+    height: $size;
+    border-radius: $radius;
+} 
+
+.wrapper {
+    margin: auto;
+    overflow: hidden;
+    width: calc(100vw);
+    height: 100vh;
+    background: linear-gradient(336.91deg, #F0F4FD -56.86%, #FFFFFF 126.39%);
+
+    .slider {
+        position: relative;
+        display: block;
+        height: 100%;
+        white-space: nowrap;
+        margin: 0 auto;
+        transform: translate(0,0);
+        
+
+        .slide {
+            display: inline-block;
+            height: 50%;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            margin: auto;
+            flex-direction: column;
+            text-align: center;
+            font-size: 2em;
+            color: black;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+            .content {
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 60px;
+                .icon {
+                    background: url('../../assets/book.svg') no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    width: 212px;
+                    height: 212px;
+                }
+
+                .text {
+                    margin: 16px 0;
+                    h1 {
+                        font-family: Circular Std;
+                        font-size: 32px;
+                        line-height: normal;
+                        text-align: center;
+                        color: #384F7D;
+                    }
+    
+                    p {
+                        font-family: Circular Std;
+                        font-size: 14px;
+                        line-height: 22px;
+                        text-align: center;
+    
+                        color: rgba(56, 79, 125, 0.8);
+                    }
+                }
+            }
+            
+            &.active {
+                background: pink;
+                transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+            }
+
+            &:nth-child(2) {
+                .icon {
+                    background: url('../../assets/star-rate.svg') no-repeat !important;
+                }
+
+                .ellipse1 {
+                    @include ellipse(50px, 10%, 12%, 40%, 20%);
+                }
+
+                .ellipse2 {
+                    @include ellipse(100px, 2%, 24%, 9%, 20%);
+                    left: inherit;
+                }
+            }
+
+            &:nth-child(3) {
+                .content {
+                    padding: 0px;
+                    max-width: 320px;
+                    width: 100%;                
+                }
+                .icon {
+                    background: url('../../assets/bulb.svg') no-repeat !important;
+                    width: 136px !important;
+                    height: 136px !important;
+                }
+
+                .ellipse1 {
+                    @include ellipse(50px, 10%, 12%, 40%, 20%);
+                }
+
+                .ellipse2 {
+                    @include ellipse(100px, 2%, 24%, 9%, 20%);
+                    left: inherit;
+                }
+            }
+
+
+        }
+    }
+
+    .wrapper_bottom {
+        position: relative;
+        top: -120px;
+        // height: ;
+        padding: 20px 60px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        span.space {
+            flex: 1 1 auto;
+        }
+
+    }
+
+    .indicator {
+        span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #8EF15C;
+            opacity: .6;
+            border-radius: 12px;
+            margin: 0 5px;
+            transition: all 500ms;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &.active {
+                width: 30px;
+                will-change: width;
+                transition: width 500ms;
+                opacity: 1;
+            }
+        }
+    }
+
+    .actions {
+        // transform: translate(-50%, -50%); 
+    }
+}
+
+
+
+.ellipse1 {
+    @include ellipse(75px, -1.6%, 85.6%, 4.93%, 85.84%);
+    background: linear-gradient(147.47deg, #FEB665 24.48%, #F66EB4 118.65%);
+    display: inline-block;
+}
+
+.ellipse2 {
+    @include ellipse(70px, 71.2%, 34.6%, 20.42%, 70.62%);
+    background: linear-gradient(228.76deg, #2DEEF9 -34.42%, #E084F1 127.18%);
+    display: inline-block;
+}
+
+.ellipse3 {
+    @include ellipse(400px, -7.8%, 34.6%, 20.42%, -15%, 50%);
+    top: inherit;
+    right: inherit;
+    background: linear-gradient(228.76deg, rgba(45, 238, 249, 0.15) -34.42%, rgba(224, 132, 241, 0.15) 127.18%);
+    display: inline-block;
+}
+
+.form {
+    margin: 20px 0px;   
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .field {
+        display: inline-flex;
+        flex-direction: column;
+        padding: 8px 0;
+        width: 100%;
+        position: relative;
+
+        label {
+            font-size: 12px;
+            line-height: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            align-self: flex-start;
+            margin: 5px 0;
+        }
+
+        input {
+            position: relative;
+            border: none;
+            border-bottom: 2px solid #00D23A;
+            padding: 12px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,.2);
+            transition: all 500ms ease-in-out;
+            outline-color: transparent;
+
+            &:focus {
+                border-bottom: 2px solid rgba(68, 89, 132, 0.4);
+                transition: all 500ms ease-in-out;
+            }
+
+            &::after {
+                content: '';
+                display: inline-block;
+                background: linear-gradient(179.24deg, #BAFB67 -5.37%, #00D23A 196.64%);
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+            }
+
+        }
+        span.eye {
+            display: inline-block;
+            background: url(../../assets/eye.svg) no-repeat;
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+    }
+
+    button {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,.2);
+        margin: 20px 0;
+
+        span {
+            line-height: normal;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: white;
+            font-weight: 500;
+        }
+    }
+
+    h6 {
+        font-size: 18px;
+    }
+}
+

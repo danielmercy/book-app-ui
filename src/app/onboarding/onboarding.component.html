@@ -1,3 +1,70 @@
-<p>
-  onboarding works!
-</p>
+<div class="wrapper" #wrapper>
+  <div class="slider" #slider>
+    <div class="slide">
+      <span class="ellipse1"></span>
+      <span class="ellipse2"></span>
+      <span class="ellipse3"></span>
+      <div class="content">
+        <div class="icon"></div>
+        <div class="text">
+          <h1>Review Them</h1>
+          <p>Create your account to get started. After that you can share books and make friends</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ellipse1"></span>
+      <span class="ellipse2"></span>
+      <span class="ellipse3"></span>
+      <div class="content">
+        <div class="icon"></div>
+        <div class="text">
+          <h1>Read Books</h1>
+          <p>Create your account to get started. After that you can share books and make friends</p>
+        </div>
+      </div>
+    </div>
+    <div class="slide">
+      <span class="ellipse1"></span>
+      <span class="ellipse2"></span>
+      <span class="ellipse3"></span>
+      <div class="content">
+        <div class="icon"></div>
+        <div class="form">
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="danielmercy@gmail.com">
+          </div>
+          <div class="field">
+            <label for="email">Password</label>
+            <input id="password" [type]="showPass ? 'password': 'text'">
+            <span class="eye" (click)="showPass = !showPass"></span>
+          </div>
+          <div class="field">
+            <label for="password">Confirm Password</label>
+            <input id="cpassword" [type]="showPass_ ? 'password': 'text'">
+            <span class="eye" (click)="showPass_ = !showPass_"></span>
+          </div>
+
+          <button class="btn">
+            <span>Sign up</span>
+          </button>
+
+          <h6>Already have an account? <a href="#">Login</a></h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper_bottom">
+      <div class="indicator" #indicator></div>
+      <span class="space"></span>
+      <a href="#">Skip intro</a>
+      <span class="space"></span>
+      <button (click)="next()" [disabled]="lastSlide" class="btn circular">
+        <span class="arrow-left"></span>
+      </button>
+  </div>
+
+  
+</div>

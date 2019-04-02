@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    // display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: linear-gradient(125.58deg, #BAFB67 -5.37%, #00D23A 196.64%);
+
+    span {
+        display: inline-flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        &.arrow-left {
+            background: url('./assets/arrow-left.svg') no-repeat;
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &[disabled] {
+        background: linear-gradient(125.58deg, #eee -5.37%, #333 196.64%);
+    }
+
+    
+
+
+    &.circular {
+        border-radius: 50%;
+    }
+}
