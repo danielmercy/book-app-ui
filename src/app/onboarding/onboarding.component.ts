@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, Renderer2, HostListener } from '@angular/core';
 import { AnimationBuilder, AnimationPlayer, AnimationFactory, animate, style } from '@angular/animations';
 
 @Component({
@@ -43,22 +43,29 @@ export class OnboardingComponent implements OnInit {
 
   constructor(private builder: AnimationBuilder, private render: Renderer2) { }
 
+  
   ngOnInit() {
-    console.log(this.slider)
+    // console.log(this.slider)
+    // this.setSlideWidth();
     this.buildSlides();
+  }
+
+  @HostListener('window:resize')
+  setSlideWidth() {
+    this.slideWidth = this.slides[0].getBoundingClientRect().width;
   }
 
   buildSlides() {
     this.currentIdx = 0;
     this.slides = this.slider.querySelectorAll('.slide');
-    
-    this.slideWidth = this.slides[0].getBoundingClientRect().width;
+
+    this.setSlideWidth();
 
     for(let i=0; i <= this.slides.length - 1; i++) {
       let span = document.createElement('span');
       span.setAttribute('_ngcontent-c1', '')
       this.indicator.appendChild(span);
-      console.log(span);
+      // console.log(span);
     }
 
     this.indicators = this.indicator.querySelectorAll('span');
@@ -79,7 +86,7 @@ export class OnboardingComponent implements OnInit {
     this.indicators[lastIdx].classList.remove('active');
 
     this.currentIdx = (this.currentIdx + 1) % this.slides.length
-    console.log(this.currentIdx);
+    // console.log(this.currentIdx);
     const offset = this.currentIdx * this.slideWidth;
 
     this.indicators[this.currentIdx].classList.add('active');

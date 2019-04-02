@@ -46,7 +46,7 @@
             <span class="eye" (click)="showPass_ = !showPass_"></span>
           </div>
 
-          <button class="btn">
+          <button class="btn" routerLink="/books">
             <span>Sign up</span>
           </button>
 
@@ -62,7 +62,7 @@
       <a href="#">Skip intro</a>
       <span class="space"></span>
       <button (click)="next()" [disabled]="lastSlide" class="btn circular">
-        <span class="arrow-left"></span>
+        <span class="icon arrow-right"></span>
       </button>
   </div>
 

@@ -46,11 +46,15 @@
             overflow: hidden;
 
             .content {
+                position: relative;
                 display: inline-flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                padding: 60px;
+                margin: 40px 0;
+                max-width: calc(100vw - 60px);
+                width: 100%;
+                z-index: 99;
                 .icon {
                     background: url('../../assets/book.svg') no-repeat;
                     background-position: center;
@@ -61,8 +65,9 @@
 
                 .text {
                     margin: 16px 0;
+                    width: 100%;
                     h1 {
-                        font-family: Circular Std;
+                        font-family: 'Roboto', sans-serif;
                         font-size: 32px;
                         line-height: normal;
                         text-align: center;
@@ -70,12 +75,13 @@
                     }
     
                     p {
-                        font-family: Circular Std;
+                        font-family: 'Roboto', sans-serif;
                         font-size: 14px;
                         line-height: 22px;
                         text-align: center;
-    
                         color: rgba(56, 79, 125, 0.8);
+                        white-space: normal;
+                        margin: 5px 0;
                     }
                 }
             }
@@ -187,7 +193,7 @@
 }
 
 .ellipse3 {
-    @include ellipse(400px, -7.8%, 34.6%, 20.42%, -15%, 50%);
+    @include ellipse(400px, -7.8%, 34.6%, 20.42%, -37%, 50%);
     top: inherit;
     right: inherit;
     background: linear-gradient(228.76deg, rgba(45, 238, 249, 0.15) -34.42%, rgba(224, 132, 241, 0.15) 127.18%);
@@ -275,3 +281,9 @@
     }
 }
 
+@media only screen and (max-width: 768px) { 
+    .wrapper .slider .slide .content {
+        margin: 10px 0;
+    }
+
+}
