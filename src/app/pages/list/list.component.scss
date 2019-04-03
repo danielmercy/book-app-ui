@@ -31,6 +31,10 @@ form {
     box-shadow: 4px 12px 25px rgba(71, 55, 255, 0.08);
     display: block;
     color: rgba(56, 79, 125, 0.8);
+
+    &::placeholder {
+        color: rgba(#384F7D, .6);
+    }
     
 }
 
@@ -136,8 +140,6 @@ form {
             bottom: -15px;
         }
     }
-
-
 
 }
 

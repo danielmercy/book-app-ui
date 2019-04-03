@@ -1,0 +1,79 @@
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    max-width: 400px;
+
+    span.done {
+        background: url('../../../assets/done.svg') no-repeat;
+        background-position: center;
+        background-size: contain;
+        width: 136px;
+        height: 136px;
+        display: block;
+    }
+
+    h3 {
+        font-size: 32px;
+        margin: 20px 0;
+        line-height: normal;
+        text-align: center;
+        color: #384F7D;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 22px;
+        text-align: center;
+        color: rgba(56, 79, 125, 0.8);
+    }
+
+    .alternates {
+        width: 100%;
+        h3 {
+            font-size: 12px;
+            line-height: normal;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            color: rgba(56, 79, 125, 0.8);
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+
+            .card {
+                // margin-right: 18px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                img {
+                    border-radius: 8px;
+                    height: 130px;
+                }
+                .title {
+                    font-size: 12px;
+                    line-height: normal;
+                    text-align: center;
+
+                    color: #384F7D;
+                }
+                .author {
+                    font-size: 10px;
+                    line-height: normal;
+                    text-align: center;
+
+                    color: rgba(56, 79, 125, 0.8);
+                }
+            }
+        }
+    }
+}

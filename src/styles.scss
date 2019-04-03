@@ -87,3 +87,9 @@ body::-webkit-scrollbar-thumb {
         border-radius: 50%;
     }
 }
+
+
+.visible {
+    visibility: visible !important;
+    display: inline-block !important;
+}
